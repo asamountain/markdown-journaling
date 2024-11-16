@@ -91,23 +91,20 @@ function! s:Rename(from, to)
     let l:to_path = expand('%:p:h') . '/' . a:to
     echom "From path: " . l:from_path
     echom "To path: " . l:to_path
-function! s:Rename(from, to)
-    echom "s:Rename called with " . a:from . " to " . a:to
-    let l:from_path = expand('%:p:h') . '/' . a:from
-    let l:to_path = expand('%:p:h') . '/' . a:to
-    echom "From path: " . l:from_path
-    echom "To path: " . l:to_path
 
     " Perform the rename operation
     if l:from_path != l:to_path
-        call rename(l:from_path, l:to_path)
-        " Reload the buffer with the new filename
-        execute 'edit ' . fnameescape(l:to_path)
-        echom "File renamed to " . l:to_path
+        try
+            call rename(l:from_path, l:to_path)
+            " Reload the buffer with the new filename
+            execute 'edit ' . fnameescape(l:to_path)
+            echom "File renamed to " . l:to_path
+        catch /.*Error.*/
+            echom "Error renaming file from " . l:from_path . " to " . l:to_path
+            echom "Error: " . v:exception
+        endtry
     else
         echom "Source and destination paths are the same. Rename skipped."
     endif
-endfunction
-
 endfunction
 
