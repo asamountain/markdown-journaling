@@ -91,15 +91,6 @@ function! s:Rename(from, to)
     let l:to_path = expand('%:p:h') . '/' . a:to
     echom "From path: " . l:from_path
     echom "To path: " . l:to_path
-    let l:cmd = 'mv ' . shellescape(l:from_path) . ' ' . shellescape(l:to_path)
-    echom "Executing command: " . l:cmd
-    let l:result = system(l:cmd)
-    echom "Result: " . l:result
-    if v:shell_error
-        echom "Error renaming file: " . l:cmd
-    else
-        echom "File renamed successfully"
-    endif
 endfunction
 
 
