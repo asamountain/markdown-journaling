@@ -15,6 +15,7 @@ function! s:InsertHeader()
             \ 'title: ',
             \ 'tags: ',
             \ 'date: ' . strftime('%Y-%m-%d'),
+	    \ 'happiness: ',
             \ '---',
             \ ''
             \ ]
@@ -91,6 +92,17 @@ function! s:Rename(from, to)
     let l:to_path = expand('%:p:h') . '/' . a:to
     echom "From path: " . l:from_path
     echom "To path: " . l:to_path
+
+    " Perform the rename operation
+    if l:from_path != l:to_path
+        call rename(l:from_path, l:to_path)
+        " Reload the buffer with the new filename
+        execute 'edit ' . fnameescape(l:to_path)
+        echom "File renamed to " . l:to_path
+    else
+        echom "Source and destination paths are the same. Rename skipped."
+    endif
 endfunction
 
+endfunction
 

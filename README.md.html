@@ -1,0 +1,43 @@
+<html><head><title>README.md</title></head><body><h1>Markdown Journaling Plugin</h1>
+<p>This Vim plugin automatically inserts a markdown header template when you create or open a markdown file. It also renames the file based on the header information when you save the file.</p>
+<h2>Features</h2>
+<ul>
+<li>Automatically inserts a markdown header template with <code>title</code>, <code>tags</code>, and <code>date</code> fields.</li>
+<li>Renames markdown files based on the header information.</li>
+<li>Easy to set up and use.</li>
+</ul>
+<h2>Installation</h2>
+<h3>Using vim-plug</h3>
+<ol>
+<li>
+<p>Add the following line to your <code>.vimrc</code> or <code>init.vim</code>:</p>
+<pre><code class="language-vim">Plug 'asamountain/markdown-Journaling'
+</code></pre>
+</li>
+<li>
+<p>Install the plugin:</p>
+<pre><code class="language-bash">:PlugInstall
+</code></pre>
+</li>
+</ol>
+<h3>Manual Installation</h3>
+<ol>
+<li>
+<p>Clone the repository:</p>
+<pre><code class="language-bash">git clone https://github.com/asamountain/markdown-Journaling ~/.vim/pack/plugins/start/markdown-Journaling
+</code></pre>
+</li>
+<li>
+<p>Restart Vim.</p>
+</li>
+</ol>
+<h2>Usage</h2>
+<h3>Automatic Header Insertion</h3>
+<p>The plugin will automatically insert a markdown header template when you create or open a markdown file. If the header is already present, it will not insert a new one.</p>
+<h3>File Renaming</h3>
+<p>The plugin will rename the markdown file based on the header information (title and date) when you save the file.</p>
+<h2>Configuration</h2>
+<p>You can customize the header template by modifying the <code>s:InsertHeader</code> function in the plugin's code.</p>
+<h2>License</h2>
+<p>This plugin is licensed under the MIT License.</p>
+</body></html>
